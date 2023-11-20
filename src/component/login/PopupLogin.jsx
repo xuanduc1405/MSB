@@ -1,8 +1,8 @@
 import React, { useImperativeHandle, useRef, useState } from "react";
-import { useNavigate } from 'react-router-dom'
 import { Form, Input, Button, Modal } from "antd";
 import "./LoginStyle.scss";
 import { handleLogin } from "../../service/login/LoginSerive";
+import { useNavigate } from "react-router-dom";
 const FormItem = Form.Item;
 const PopupLogin = ({ refLogin }) => {
   const [user, setUser] = useState({
@@ -10,8 +10,8 @@ const PopupLogin = ({ refLogin }) => {
     password: "",
   });
   const [visible, setVisible] = useState(false);
-  const navigate = useNavigate();
   const formRef = useRef({});
+  const navigate = useNavigate();
 
   useImperativeHandle(refLogin, () => ({
     open: () => {
@@ -28,8 +28,8 @@ const PopupLogin = ({ refLogin }) => {
       const isLogin = await handleLogin(user);
       if (isLogin?.data) {
         localStorage.setItem("USER", isLogin?.data?.token);
+        navigate('/account');
         setVisible(false);
-        // navigate('/account');
       }
     } catch (e) {
       alert('Sai tên đăng nhập hoặc mật khẩu');

@@ -1,0 +1,10 @@
+.bread-container {
+    padding-top: 20px;
+    color: gray;
+    li {
+        cursor: pointer;
+    }
+    li:last-child {
+        color: #F4600C;
+    }
+}

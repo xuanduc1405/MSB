@@ -13,7 +13,7 @@
 }
 .logo {
   cursor: pointer;
-  flex-grow: 12;
+  flex: 7;
   width: 100px;
   height: 24px;
   background-image: url("./../../_core/img/Logo.svg");
@@ -32,16 +32,16 @@
   .ant-menu-horizontal {
     border-bottom: none !important;
   }
+  
   .ant-menu-submenu-active {
     inset-inline: unset !important;
+    border-bottom: none !important;
   }
   .button-block {
     display: flex;
     align-items: center;
   }
   .account {
-    border-left: 1px solid;
-    margin-left: 15px;
     display: flex;
     flex-direction: row;
     align-items: center;
