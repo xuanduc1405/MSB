@@ -1,0 +1,27 @@
+.footer-button {
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+    height: 40px;
+    .login-form-button, .login-form-button:hover {
+        width: 140px;
+        background-color: #F4600C;
+        border-color: #F4600C !important;
+        color: white !important;
+    }
+    .close-form-button, .close-form-button:hover {
+        width: 140px;
+        color: #F4600C !important;
+        background-color: white;
+        border-color: #F4600C !important;
+    }
+}
+    .ant-modal-title {
+        font-weight: 700 !important;
+        font-size: 18px !important;
+    }
+    .title-field {
+        font-size: 14px;
+        line-height: 20px;
+        font-weight: 500;
+    }

@@ -1,0 +1,33 @@
+{
+    "products": [{
+        "id": 1,
+        "title": "Thẻ tín dụng",
+        "detail": "Đa dạng lựa chọn theo phong cách chi tiêu",
+        "image": "https://res.cloudinary.com/dn8mnagsf/image/upload/v1700209339/p1_sjdp9f.svg"
+    }, {
+        "id": 2,
+        "title": "Vay linh hoạt",
+        "detail": "Giải ngân tức thì, tiêu dùng linh hoạt",
+        "image": "https://res.cloudinary.com/dn8mnagsf/image/upload/v1700209328/p2_hwksmg.svg"
+    }, {
+        "id": 3,
+        "title": "Mua trước trả sau",
+        "detail": "Chuyển đổi trả góp, nhẹ ví chi tiêu",
+        "image": "https://res.cloudinary.com/dn8mnagsf/image/upload/v1700209339/p3_amckbd.svg"
+    }, {
+        "id": 4,
+        "title": "Tiền nhanh",
+        "detail": "Nhận khoản vay dự phòng, chủ động và nhanh chóng.",
+        "image": "https://res.cloudinary.com/dn8mnagsf/image/upload/v1700209329/p4_grjyde.svg"
+    }, {
+        "id": 5,
+        "title": "Tài khoản thanh toán M-Pro",
+        "detail": "Siêu miễn phí, hoàn tiền tới 3,6 triệu đồng",
+        "image": "https://res.cloudinary.com/dn8mnagsf/image/upload/v1700209324/p5_mpfomn.svg"
+    }, {
+        "id": 6,
+        "title": "Bảo hiểm",
+        "detail": "Mua bảo hiểm trực tuyến dễ dàng chỉ với vài thao tác",
+        "image": "https://res.cloudinary.com/dn8mnagsf/image/upload/v1700209317/p6_o5tgnv.svg"
+    }]
+}

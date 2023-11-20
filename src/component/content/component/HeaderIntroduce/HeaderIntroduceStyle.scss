@@ -1,0 +1,27 @@
+.header-introduce {
+    border-radius: 16px;
+    box-shadow: 0px 20px 24px -4px #10182814;
+    height: 216px;
+    display: flex;
+    flex-direction: row;
+    background-color: #FFFFFF;
+}
+.list-reason {
+    flex-grow: 1;
+    width: 100px;
+    height: 216px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.ask-question {
+    text-align: left;
+    padding: 48px 36px 108px 48px;
+    width: 170px;
+    span {
+        font-weight: 700;
+        font-size: 24px;
+        line-height: 32px;
+    }
+
+}
