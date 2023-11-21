@@ -15,7 +15,7 @@ const PopupLogin = ({ refLogin }) => {
 
   useImperativeHandle(refLogin, () => ({
     open: () => {
-      const promise= new Promise((resolve, reject) => {
+      const promise = new Promise((resolve, reject) => {
         formRef.current.resolve = resolve;
         formRef.current.reject = reject;
       })
@@ -30,11 +30,11 @@ const PopupLogin = ({ refLogin }) => {
         localStorage.setItem("USER", isLogin?.data?.token);
         setVisible(false);
         // navigate('/account');
+        formRef.current.resolve();
       }
     } catch (e) {
       alert('Sai tên đăng nhập hoặc mật khẩu');
     }
-    formRef.current.resolve();
   };
 
   return (

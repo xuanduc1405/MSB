@@ -1,7 +1,7 @@
 import { Menu } from "antd";
 import React, { useMemo } from "react";
 // import { items } from "../../_core/constant/constant";
-const ListMenu = ({ refLogin, onLogined, data }) => {
+const ListMenu = ({ refLogin, data }) => {
   // const user = localStorage.getItem("USER");
   // const listItem = useMemo(() => {
   //   const newList = items?.filter(item => user ? item?.key !== 'signIn' : item);
@@ -10,7 +10,7 @@ const ListMenu = ({ refLogin, onLogined, data }) => {
 
   const handleClickMenu = (e) => {
     if (e?.key === "signIn") {
-      refLogin?.current?.open().then(onLogined);
+      refLogin?.current?.open();
     }
   };
   return (
