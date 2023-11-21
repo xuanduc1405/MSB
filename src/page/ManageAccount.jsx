@@ -4,19 +4,21 @@ import Account from "../component/account/Account";
 const ManageAccount = () => {
   return (
     <div className="content">
-      <div className="content-container">
-        <BreadCrumb
-          items={[
-            {
-              title: "Trang chủ",
-            },
-            {
-              title: "Quản lí tài khoản",
-            },
-          ]}
-        />
-      <Account />
-    </div>
+      <div className="manage-account-block">
+        <div className="content-container">
+          <BreadCrumb
+            items={[
+              {
+                title: "Trang chủ",
+              },
+              {
+                title: "Quản lí tài khoản",
+              },
+            ]}
+          />
+          <Account />
+        </div>
+      </div>
     </div>
   );
 };

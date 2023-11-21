@@ -3,12 +3,11 @@ import './ContentStyle.scss';
 import HeaderIntroduce from "./component/HeaderIntroduce/HeaderIntroduce";
 import ListProduct from "./component/ListProduct/ListProduct";
 import PopupLogin from "../login/PopupLogin";
-const ContentPage = ({refLogin}) => {
+const ContentPage = () => {
     return (
         <div className="content-container">
            <HeaderIntroduce />
            <ListProduct />
-           <PopupLogin refLogin={refLogin}/>
         </div>
     )
 };

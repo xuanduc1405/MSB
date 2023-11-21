@@ -7,4 +7,8 @@
     li:last-child {
         color: #F4600C;
     }
+    .ant-breadcrumb-separator {
+        display: flex;
+        align-items: center;
+    }
 }
