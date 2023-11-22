@@ -8,15 +8,15 @@ const HeaderIntroduce = () => {
         <div className="header-introduce">
             <div className="ask-question">
                 <span>
-                Vì sao nên 
+                    Vì sao nên
                     chọn chúng tôi
                 </span>
             </div>
             <div className="list-reason">
                 {listReason.map(item => {
-                    return (<Product icon={item.icon} title={item.title} content={item.content} />)
+                    return (<Product key={item.id} icon={item.icon} title={item.title} content={item.content} />)
                 })}
-                
+
             </div>
         </div>
     )

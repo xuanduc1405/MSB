@@ -4,15 +4,24 @@ import ListMenu from "../menu/ListMenu";
 import { Button, Menu } from "antd";
 import { decodeToken } from "../../_core/helpers/Utils";
 import { items } from "../../_core/constant/constant";
+import useLocalStorageChange from "../../utilities/hooks/useLocalStorage";
+import { handleCheckToken } from "../../utilities/helpers";
 
 const Header = ({ refLogin }) => {
   const user = localStorage.getItem("USER");
   const token = user ? decodeToken(user) : '';
-  const [isLogined, setIsLogined] = useState(false);
+  const [isLogged, setIsLogged] = useState(false);
   const menu = useMemo(() => {
-    const newList = items?.filter(item => isLogined ? item?.key !== 'signIn' : item);
+    const newList = items?.filter(item => isLogged ? item?.key !== 'signIn' : item);
     return newList;
-  }, [isLogined]);
+  }, [isLogged]);
+
+  useLocalStorageChange({
+    callback: (e) => {
+      const user = e?.detail?.["USER"];
+      handleCheckToken(user, setIsLogged);
+    }
+  });
 
   const accountList = [
     {
@@ -39,7 +48,7 @@ const Header = ({ refLogin }) => {
     <div className="header-container">
       <div className="logo"></div>
       <div className="list-action-header">
-        <ListMenu refLogin={refLogin} onLogined={() => {setIsLogined(true);}} data={menu} />
+        <ListMenu refLogin={refLogin} data={menu} />
         <div className="right-header">
           <div className="button-block">
             <Button
@@ -54,7 +63,7 @@ const Header = ({ refLogin }) => {
               Yêu cầu tư vấn
             </Button>
           </div>
-          {isLogined && (
+          {isLogged && (
             // <div className="account">
             //   <img src={token?.image} className="avatar" />
             //   <span>{`${token?.username} ${token?.lastName}`}</span>
@@ -62,7 +71,7 @@ const Header = ({ refLogin }) => {
             <Menu
               mode="horizontal"
               items={accountList}
-              // onClick={(e) => handleClickMenu(e)}
+            // onClick={(e) => handleClickMenu(e)}
             />
           )}
           <></>

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./ProductStyle.scss";
 import { getListProducts } from "../../../../service/product/ProductService";
 import Product from "./Product";
-import { ReactComponent as GoArrow } from "./../../../../_core/img/GoArrow.svg";
+import GoArrow from "./../../../../_core/img/GoArrow.svg?react";
 
 const ListProduct = () => {
   const [listProduct, setListProduct] = useState([]);
@@ -16,7 +16,7 @@ const ListProduct = () => {
       const dataList = await getListProducts();
       if (!dataList?.data) return;
       setListProduct(dataList?.data);
-    } catch (e) {}
+    } catch (e) { }
   };
 
   const discoveryNow = (

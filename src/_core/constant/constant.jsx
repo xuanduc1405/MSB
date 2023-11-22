@@ -1,8 +1,8 @@
 import Banner from "../../component/banner/Banner";
-import { ReactComponent as Phone } from "./../../_core/img/Phone.svg";
-import { ReactComponent as Document } from "./../../_core/img/re1.svg";
-import { ReactComponent as Time } from "./../../_core/img/re2.svg";
-import { ReactComponent as Change } from "./../../_core/img/re3.svg";
+import Phone from "./../../_core/img/Phone.svg?react";
+import Document from "./../../_core/img/re1.svg?react";
+import Time from "./../../_core/img/re2.svg?react";
+import Change from "./../../_core/img/re3.svg?react";
 export const items = [
   {
     label: "Sản phẩm",
@@ -17,7 +17,7 @@ export const items = [
           },
           {
             label: "Thẻ tín dụng",
-            key: "credit1",
+            key: "credit2",
           },
         ],
       },

@@ -13,3 +13,4 @@ export const decodeToken = (token) => {
 
   return JSON.parse(jsonPayload);
 };
+export default { decodeToken };
