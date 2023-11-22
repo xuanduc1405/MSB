@@ -3,6 +3,9 @@ import Phone from "./../../_core/img/Phone.svg?react";
 import Document from "./../../_core/img/re1.svg?react";
 import Time from "./../../_core/img/re2.svg?react";
 import Change from "./../../_core/img/re3.svg?react";
+import User from "./../../_core/img/user.svg?react";
+import File from "./../../_core/img/file-text.svg?react";
+import Logout from "./../../_core/img/log-out.svg?react";
 export const items = [
   {
     label: "Sản phẩm",
@@ -107,5 +110,41 @@ export const listReason = [
     icon: <Change />,
     title: "Sử dụng linh hoạt",
     content: "Dễ dàng chuyển đổi linh hoạt giữa các sản phẩm",
+  },
+];
+export const listFunctionManage = [
+  {
+    label: <div className="function-item">
+      <User />
+      <span>Thông tin tài khoản</span>
+    </div>,
+    key: "user"
+  },
+  {
+    label: <div className="function-item">
+      <File />
+      <span>Thông tin sản phẩm</span>
+    </div>,
+    key: "product"
+  },
+  {
+    label: <div className="function-item">
+      <Logout />
+      <span>Đăng xuất</span>
+    </div>,
+    key: "logout"
+  },
+
+];
+export const contentList = [
+  {
+    key: "user",
+    title: "Thông tin chung",
+    content: "hihi",
+  },
+  {
+    key: "product",
+    title: "Thông tin sản phẩm",
+    content: "hihi",
   },
 ];

@@ -4,20 +4,20 @@ import useLocalStorageChange from "../../utilities/hooks/useLocalStorage";
 import { handleCheckToken } from "../../utilities/helpers";
 
 const PrivateRoute = ({ children }) => {
-    const [isLogged, setIsLogged] = useState(false);
-
+    const [isLogged, setIsLogged] = useState(true);
     const handleStorageChange = (e) => {
         const user = e?.detail?.["USER"];
-        handleCheckToken(user, setIsLogged);
+        handleCheckToken(user, (status) => setTimeout(() => setIsLogged(status), 100));
     };
 
     useLocalStorageChange({ callback: handleStorageChange });
     useEffect(() => {
         const user = localStorage.getItem("USER");
-        handleCheckToken(user, setIsLogged);
+        handleCheckToken(user, (status) => setTimeout(() => setIsLogged(status), 100));
     }, []);
 
-    return isLogged ? <>{children}</> : <Navigate to="/" />;
+    if(isLogged) return <>{children}</>;
+    return  <Navigate to="/" />;
 }
 
 export default PrivateRoute;

@@ -6,11 +6,9 @@ import GoArrow from "./../../../../_core/img/GoArrow.svg?react";
 
 const ListProduct = () => {
   const [listProduct, setListProduct] = useState([]);
-
   useEffect(() => {
     getListProduct();
   }, []);
-
   const getListProduct = async () => {
     try {
       const dataList = await getListProducts();
@@ -43,5 +41,4 @@ const ListProduct = () => {
     </div>
   );
 };
-
 export default ListProduct;

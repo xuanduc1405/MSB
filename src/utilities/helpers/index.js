@@ -3,7 +3,7 @@ import { decodeToken } from "../../_core/helpers/Utils";
 export const handleCheckToken = (user, callback) => {
     const token = user ? decodeToken(user) : '';
     // TODO: check token expired after
-    if (token) callback(true);
+    callback(Boolean(token));
 };
 
 const helpers = { handleCheckToken };

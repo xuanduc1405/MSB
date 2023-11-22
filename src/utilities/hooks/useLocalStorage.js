@@ -11,6 +11,12 @@ const useLocalStorageChange = ({ callback }) => {
             window.dispatchEvent(event);
             originalSetItem.apply(this, arguments);
         };
+        const originRemoveItem = localStorage.removeItem;
+        localStorage.removeItem = function () {
+            const event = new CustomEvent('storage', {});
+            window.dispatchEvent(event);
+            originRemoveItem.apply(this, arguments);
+        };
         return () => {
             if (window) window.removeEventListener("storage", callback);
         };
