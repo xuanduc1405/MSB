@@ -6,6 +6,7 @@ import ManageAccount from "./page/ManageAccount";
 import { Route, Routes } from "react-router-dom";
 import { useRef } from "react";
 import PrivateRoute from "./component/router/PrivateRoute";
+import ErrorPage from "./page/404NotFound";
 
 function App() {
   const refLogin = useRef();
@@ -14,9 +15,9 @@ function App() {
     <div className="App">
       <Header refLogin={refLogin} />
       <Routes>
-        <Route path="/" element={<HomePage refLogin={refLogin} />} />
-        <Route path="/account" element={<PrivateRoute><ManageAccount /></PrivateRoute>} />
-        {/* <Route path="contact" element={ <Contact/> } /> */}
+        <Route exact path="/" element={<HomePage refLogin={refLogin} />} />
+        <Route exact path="/account" element={<PrivateRoute><ManageAccount /></PrivateRoute>} />
+        <Route path="*" element={<ErrorPage />} />
       </Routes>
       <FooterPage />
     </div>

@@ -10,5 +10,4 @@ const HomePage = ({ refLogin }) => {
     </div>
   );
 };
-
 export default HomePage;

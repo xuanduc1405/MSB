@@ -1,13 +1,15 @@
-import React, { useMemo, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import "./HeaderStyle.scss";
 import ListMenu from "../menu/ListMenu";
-import { Button, Menu } from "antd";
+import { Button, Dropdown, Menu, Space } from "antd";
 import { decodeToken } from "../../_core/helpers/Utils";
 import { items } from "../../_core/constant/constant";
 import useLocalStorageChange from "../../utilities/hooks/useLocalStorage";
 import { handleCheckToken } from "../../utilities/helpers";
+import { useNavigate } from "react-router";
 
 const Header = ({ refLogin }) => {
+  const navigate = useNavigate();
   const user = localStorage.getItem("USER");
   const token = user ? decodeToken(user) : '';
   const [isLogged, setIsLogged] = useState(false);
@@ -15,6 +17,11 @@ const Header = ({ refLogin }) => {
     const newList = items?.filter(item => isLogged ? item?.key !== 'signIn' : item);
     return newList;
   }, [isLogged]);
+
+  useEffect(() => {
+    const user = localStorage.getItem("USER");
+    handleCheckToken(user, setIsLogged);
+}, []);
 
   useLocalStorageChange({
     callback: (e) => {
@@ -25,28 +32,27 @@ const Header = ({ refLogin }) => {
 
   const accountList = [
     {
+      label: <p onClick={() => navigate("/account")}>Quản lí tài khoản</p>,
+      key: "manageAccount",
+    },
+    {
       label: (
-        <div className="account">
-          <img src={token?.image} className="avatar" />
-          <span>{`${token?.username} ${token?.lastName}`}</span>
-        </div>
+        <p
+          onClick={() => {
+            localStorage.removeItem("USER");
+            setIsLogged(false);
+            navigate("/");
+          }}
+        >
+          Đăng xuất
+        </p>
       ),
-      key: "product",
-      children: [
-        {
-          label: "Quản lí tài khoản",
-          key: "manageAccount",
-        },
-        {
-          label: "Đăng xuất",
-          key: "Signout",
-        },
-      ],
+      key: "signOut",
     },
   ];
   return (
     <div className="header-container">
-      <div className="logo"></div>
+      <div className="logo" onClick={() => navigate("/")}></div>
       <div className="list-action-header">
         <ListMenu refLogin={refLogin} data={menu} />
         <div className="right-header">
@@ -64,15 +70,14 @@ const Header = ({ refLogin }) => {
             </Button>
           </div>
           {isLogged && (
-            // <div className="account">
-            //   <img src={token?.image} className="avatar" />
-            //   <span>{`${token?.username} ${token?.lastName}`}</span>
-            // </div>
-            <Menu
-              mode="horizontal"
-              items={accountList}
-            // onClick={(e) => handleClickMenu(e)}
-            />
+            <Dropdown menu={{ items: accountList }}>
+              <div className="account">
+                <Space>
+                  <img src={token?.image} className="avatar" />
+                  <span>{`${token?.username} ${token?.lastName}`}</span>
+                </Space>
+              </div>
+            </Dropdown>
           )}
           <></>
         </div>
@@ -80,5 +85,4 @@ const Header = ({ refLogin }) => {
     </div>
   );
 };
-
 export default Header;

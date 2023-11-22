@@ -1,0 +1,51 @@
+.account-container {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  text-align: left;
+  margin-top: 15px;
+  .title {
+    padding: 16px;
+    font-weight: 500;
+    font-size: 18px;
+    background-color: #ffffff;
+    border-radius: 8px 8px 0 0;
+  }
+
+  .left-content {
+    width: 333px;
+    flex: 1;
+    border: 1px solid #eaecf0;
+    border-radius: 8px;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+  }
+  .right-content {
+    width: 691px;
+    flex: 2;
+    border: 1px solid #eaecf0;
+    background-color: #ffffff;
+    border-radius: 8px;
+    height: 180px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .function-item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 12px;
+  }
+
+  ul {
+    border-radius: 0 0 8px 8px;
+    li:hover {
+      background-color: #fef7f3;
+    }
+    .ant-menu-item-selected {
+      background-color: #fef7f3;
+    }
+  }
+}

@@ -82,5 +82,4 @@ const PopupLogin = ({ refLogin }) => {
     </Modal>
   );
 };
-
 export default PopupLogin;
