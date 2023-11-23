@@ -1,33 +1,44 @@
 import React, { useEffect, useMemo, useState } from "react";
 import "./HeaderStyle.scss";
 import ListMenu from "../menu/ListMenu";
-import { Button, Dropdown, Menu, Space } from "antd";
+import { Button, Drawer, Dropdown, Menu, Space, Typography } from "antd";
 import { decodeToken } from "../../_core/helpers/Utils";
 import { items } from "../../_core/constant/constant";
 import useLocalStorageChange from "../../utilities/hooks/useLocalStorage";
 import { handleCheckToken } from "../../utilities/helpers";
 import { useNavigate } from "react-router";
+import UserInfoForm from "../form/UserInfoForm";
 
 const Header = ({ refLogin }) => {
   const navigate = useNavigate();
   const user = localStorage.getItem("USER");
-  const token = user ? decodeToken(user) : '';
+  const token = user ? decodeToken(user) : "";
   const [isLogged, setIsLogged] = useState(false);
+  const [open, setOpen] = useState(false);
   const menu = useMemo(() => {
-    const newList = items?.filter(item => isLogged ? item?.key !== 'signIn' : item);
+    const newList = items?.filter((item) =>
+      isLogged ? item?.key !== "signIn" : item
+    );
     return newList;
   }, [isLogged]);
 
   useEffect(() => {
     const user = localStorage.getItem("USER");
     handleCheckToken(user, setIsLogged);
-}, []);
+  }, []);
 
+  const showDrawer = () => {
+    setOpen(true);
+  };
+
+  const onClose = () => {
+    setOpen(false);
+  };
   useLocalStorageChange({
     callback: (e) => {
       const user = e?.detail?.["USER"];
       handleCheckToken(user, setIsLogged);
-    }
+    },
   });
 
   const accountList = [
@@ -65,9 +76,25 @@ const Header = ({ refLogin }) => {
                 fontWeight: "600",
                 width: "123px",
               }}
+              onClick={showDrawer}
             >
               Yêu cầu tư vấn
             </Button>
+            <Drawer
+              className="form-user-info"
+              title={
+                <Typography.Title level={5}>Yêu cầu tư vấn</Typography.Title>
+              }
+              onClose={onClose}
+              open={open}
+              styles={{
+                body: {
+                  paddingBottom: 80,
+                },
+              }}
+            >
+              <UserInfoForm />
+            </Drawer>
           </div>
           {isLogged && (
             <Dropdown menu={{ items: accountList }}>

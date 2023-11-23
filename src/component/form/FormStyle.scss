@@ -1,0 +1,91 @@
+.form-user-info {
+  .ant-form {
+    height: 100%;
+  }
+
+  .ant-typography {
+    margin: 0px;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 24px;
+  }
+  .ant-radio-group {
+    display: inline-flex;
+    flex-flow: row;
+    width: 100%;
+    .ant-radio-wrapper {
+        flex: 1;
+    }
+  }
+  .ant-col {
+    min-height: 40px;
+  }
+  .ant-drawer-header {
+    padding: 16px !important;
+  }
+  .ant-drawer-header-title {
+    flex-direction: row-reverse;
+    h5 {
+      font-weight: 700 !important;
+    }
+  }
+
+  .ant-drawer-body {
+    padding: 16px;
+  }
+
+  .user-info {
+    font-weight: 500;
+    margin-bottom: 42px;
+  }
+
+  .sex,
+  .category {
+    margin-bottom: 16px;
+  }
+
+  .ant-radio-wrapper {
+    .ant-radio.ant-radio-checked {
+      .ant-radio-inner {
+        background-color: #f4600c;
+        border-color: #f4600c !important;
+        &:hover {
+          border-color: #f4600c !important;
+        }
+      }
+    }
+  }
+
+  .ant-checkbox-wrapper {
+    .ant-checkbox.ant-checkbox-checked {
+      .ant-checkbox-inner {
+        background-color: #f4600c;
+        border-color: #f4600c !important;
+        &:hover {
+          border-color: #f4600c !important;
+        }
+      }
+    }
+  }
+
+  :where(.css-dev-only-do-not-override-1adbn6x).ant-checkbox-wrapper:not(
+      .ant-checkbox-wrapper-disabled
+    ):hover
+    .ant-checkbox-checked:not(.ant-checkbox-disabled)
+    .ant-checkbox-inner {
+    background-color: #f4600c !important;
+    border-color: #f4600c !important;
+  }
+
+  .btn-submit {
+    position: fixed;
+    bottom: 10px;
+    color: white;
+    background: #f4600c;
+    width: 346px;
+    &:hover {
+      border-color: #f4600c !important;
+      color: white !important;
+    }
+  }
+}
